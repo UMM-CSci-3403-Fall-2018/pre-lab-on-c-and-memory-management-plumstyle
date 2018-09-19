@@ -67,7 +67,9 @@ int is_clean(char* str) {
   // greater than the second.
   result = strcmp(str, cleaned);
   // we free space that allocated by calloc
-   free(cleaned);
+  if (strlen(cleaned) > 0) {
+    free(cleaned);
+  }
   
   return result == 0;
 }
